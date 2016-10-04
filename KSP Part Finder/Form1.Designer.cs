@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent ()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ChooseFolder = new System.Windows.Forms.Button();
             this.DataPath = new System.Windows.Forms.TextBox();
@@ -39,6 +40,8 @@
             this.IgnoreTweakScale = new System.Windows.Forms.CheckBox();
             this.IgnoreFilterExtensions = new System.Windows.Forms.CheckBox();
             this.IgnoreMechJeb = new System.Windows.Forms.CheckBox();
+            this.ProgressBar = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // ChooseFolder
@@ -132,11 +135,27 @@
             this.IgnoreMechJeb.UseVisualStyleBackColor = true;
             this.IgnoreMechJeb.CheckStateChanged += new System.EventHandler(this.IgnoreMechJeb_CheckStateChanged);
             // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(13, 84);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(534, 23);
+            this.ProgressBar.TabIndex = 9;
+            this.ProgressBar.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 80);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(555, 112);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.IgnoreMechJeb);
             this.Controls.Add(this.IgnoreFilterExtensions);
             this.Controls.Add(this.IgnoreTweakScale);
@@ -151,6 +170,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "KSP Part Finder";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +188,8 @@
         private System.Windows.Forms.CheckBox IgnoreTweakScale;
         private System.Windows.Forms.CheckBox IgnoreFilterExtensions;
         private System.Windows.Forms.CheckBox IgnoreMechJeb;
+        private System.Windows.Forms.ProgressBar ProgressBar;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
